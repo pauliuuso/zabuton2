@@ -7,6 +7,7 @@ public class ButtonActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
 	public Sprite inactive;
 	public Sprite active;
+	public AudioClip clickSound;
 
 	void Start()
 	{
@@ -15,6 +16,11 @@ public class ButtonActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		transform.GetComponent<Image>().overrideSprite = inactive;
+		if(clickSound != null)
+		{
+			SoundsSource.soundsSource.audioClip = clickSound;
+			SoundsSource.soundsSource.PlaySound();
+		}
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)

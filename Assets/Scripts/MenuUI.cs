@@ -5,10 +5,14 @@ public class MenuUI : MonoBehaviour
 {
 	public int currentLevel = 0;
 	public GameObject[] levels;
+	public AudioClip activeSound;
+
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () 
 	{
+		audioSource = gameObject.AddComponent<AudioSource>();
 		UpdateMenu();
 	}
 
@@ -18,6 +22,11 @@ public class MenuUI : MonoBehaviour
 		{
 			if(a == currentLevel)
 			{
+				if(activeSound != null)
+				{
+					audioSource.clip = activeSound;
+					audioSource.Play();
+				}
 				levels[a].SetActive(true);
 			}
 			else
