@@ -14,13 +14,11 @@ public class ContinueGame : MonoBehaviour, IPointerDownHandler
 
     private MainController mainController;
     private string baseUrl;
-    private UserConnection userObject;
 
 	void Start () 
 	{
         mainController = MainController.mainController;
         baseUrl = mainController.baseUrl;
-        userObject = new UserConnection();
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
@@ -35,51 +33,33 @@ public class ContinueGame : MonoBehaviour, IPointerDownHandler
 			form.AddField("name", name);
 			form.AddField("password", pass);
 			WWW www = new WWW(url, form);
-			StartCoroutine(createUser(www));
+			StartCoroutine(CheckUser(www));
+            warningText.text = "";
 		}
 	}
 
-    public class UserConnection
-    {
-        public string message;
-        public string id;
-        public string text;
-        public string name;
-    }
-
-	IEnumerator createUser(WWW www)
+	IEnumerator CheckUser(WWW www)
 	{
-
 		yield return www;
 		if(www.error == null)
 		{
-            userObject = JsonUtility.FromJson<UserConnection>(www.text);
-
-            if(userObject.message != "OK")
+            if(!mainController.LoginUser(www))
             {
-                warningText.text = userObject.message;
-                print("error: " + userObject.text);
-            }
-            else if(userObject.message == "OK")
-            {
-                loginUser();
+                warningText.text = mainController.userObject.message;
+                ErrorSound();
             }
 		}
 		else
 		{
-			print("Failed to connect to server: " + www.error);
+            warningText.text = "Failed to connect to server: " + www.error;
+            ErrorSound();
 		}
 	}
 
-    public void loginUser()
+    void ErrorSound()
     {
-        mainController.name = userObject.name;
-        mainController.id = userObject.id;
-        print("login");
+        SoundsSource.soundsSource.audioClip = "error1";
+        SoundsSource.soundsSource.PlaySound();
     }
 
-	void Update () 
-	{
-	
-	}
 }
