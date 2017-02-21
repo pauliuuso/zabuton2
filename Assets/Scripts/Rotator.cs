@@ -5,10 +5,20 @@ public class Rotator : MonoBehaviour
 {
 
     public float speed = 2f;
+    public bool randomSpeed = false;
+    public float minRandomSpeed;
+    public float maxRandomSpeed;
     public bool rotateX = false;
     public bool rotateY = false;
     public bool rotateZ = false;
-	
+
+    void Start()
+    {
+        if (randomSpeed)
+        {
+            speed = Random.Range(minRandomSpeed, maxRandomSpeed);
+        }
+    }
 
 	void FixedUpdate () 
     {
