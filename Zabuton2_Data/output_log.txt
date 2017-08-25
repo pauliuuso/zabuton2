@@ -1,0 +1,52 @@
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
+    Vendor:   Intel
+    VRAM:     880 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.283 seconds
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Ursa\Desktop\Unity games\Zabuton_2\Zabuton2_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 19.476360 ms
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 11d0 -> priority: 1 
+login
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.905738 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 414.
+Total: 0.446872 ms (FindLiveObjects: 0.031216 ms CreateObjectMapping: 0.041480 ms MarkObjects: 0.236478 ms  DeleteObjects: 0.137268 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.664535 ms
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 261.
+Total: 0.350228 ms (FindLiveObjects: 0.041907 ms CreateObjectMapping: 0.053881 ms MarkObjects: 0.184308 ms  DeleteObjects: 0.068848 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.904007 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 215.
+Total: 0.227070 ms (FindLiveObjects: 0.023091 ms CreateObjectMapping: 0.010690 ms MarkObjects: 0.131282 ms  DeleteObjects: 0.061578 ms)
+

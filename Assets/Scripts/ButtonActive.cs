@@ -15,22 +15,33 @@ public class ButtonActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		transform.GetComponent<Image>().overrideSprite = inactive;
-		if(clickSound != "")
-		{
-			SoundsSource.soundsSource.audioClip = clickSound;
-			SoundsSource.soundsSource.PlaySound();
-		}
+        if(isInteractable())
+        {
+            transform.GetComponent<Image>().overrideSprite = inactive;
+            if (clickSound != "")
+            {
+                SoundsSource.soundsSource.audioClip = clickSound;
+                SoundsSource.soundsSource.PlaySound();
+            }
+        }
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		transform.GetComponent<Image>().overrideSprite = active;
+        if(isInteractable())
+        {
+            transform.GetComponent<Image>().overrideSprite = active;
+        }
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		transform.GetComponent<Image>().overrideSprite = inactive;
 	}
+
+    private bool isInteractable()
+    {
+        return transform.GetComponent<Button>().IsInteractable();
+    }
 
 }

@@ -5,6 +5,10 @@
 [Bb]uild/
 WebGL/
 
+player_win_x86.pdb
+player_win_x86_s.pdb
+Zabuton2.exe
+
 # Unity3D generated meta files
 *.pidb.meta
 
