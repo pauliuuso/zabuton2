@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class MainController : MonoBehaviour 
 {
@@ -17,6 +18,8 @@ public class MainController : MonoBehaviour
     // storing all user info
     [System.NonSerialized]
     public UserConnection userObject;
+    [System.NonSerialized]
+    public PlayersObject playersObject = new PlayersObject();
 
     private SpecialPrint specialPrint = new SpecialPrint();
 
@@ -97,6 +100,21 @@ public class MainController : MonoBehaviour
         }
     }
 
+    public bool GetUsers(WWW www)
+    {
+        JsonUtility.FromJsonOverwrite(www.text, playersObject);
+        playersObject.players = playersObject.players.OrderByDescending(x => x.gold).ToList();
+
+        if (playersObject.message == "OK")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public class UserConnection
     {
         public string message;
@@ -108,6 +126,21 @@ public class MainController : MonoBehaviour
         public int planetPower;
         public int gold;
         public string token;
+    }
+
+    [System.Serializable]
+    public class Players
+    {
+        public string name;
+        public int gold;
+        public string id;
+    }
+
+    [System.Serializable]
+    public class PlayersObject
+    {
+        public string message;
+        public List<Players> players;
     }
 
 }

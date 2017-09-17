@@ -11,14 +11,15 @@ public class ShipForSale : MonoBehaviour
     // sort by price in future
     //private List<KeyValuePair<string, GameObject>> shipsForSale = MainController.mainController.allShips.ToList();
 
-    private List<string> shipsForSale = MainController.mainController.allShips.Keys.ToList();
+    private List<GameObject> shipsForSale = MainController.mainController.allShips.Values.ToList();
     [System.NonSerialized]
     public GameObject currentShip;
     private int currentlySelected = 0;
 
 	void Start () 
     {
-	    currentShip = Instantiate(mainController.allShips[shipsForSale[currentlySelected]], transform.position, transform.rotation) as GameObject;
+        shipsForSale = shipsForSale.OrderBy(x => x.GetComponent<Ship>().cost).ToList();
+	    currentShip = Instantiate(shipsForSale[currentlySelected], transform.position, transform.rotation) as GameObject;
         currentShip.transform.parent = transform;
 	}
 
@@ -37,7 +38,7 @@ public class ShipForSale : MonoBehaviour
         }
 
         Destroy(currentShip);
-        currentShip = Instantiate(mainController.allShips[shipsForSale[currentlySelected]], transform.position, transform.rotation) as GameObject;
+        currentShip = Instantiate(shipsForSale[currentlySelected], transform.position, transform.rotation) as GameObject;
         currentShip.transform.parent = transform;
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0f, transform.localEulerAngles.z);
     }
